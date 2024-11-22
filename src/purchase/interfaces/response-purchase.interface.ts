@@ -1,4 +1,4 @@
-import { PurchaseEntity } from "./../purchase.entity";
+import { PurchaseEntity } from "../entities/purchase.entity";
 
 
 export interface ResponseAllPurchase{

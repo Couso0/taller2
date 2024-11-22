@@ -5,7 +5,7 @@ import { PurchaseEntity } from './entities/purchase.entity';
 import { ManagerError } from 'src/common/errors/manager.error';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, UpdateResult } from 'typeorm';
-import { ResponseAllPurchase } from './entities/interfaces/response-purchase.interface';
+import { ResponseAllPurchase } from './interfaces/response-purchase.interface';
 import { PaginationDto } from './../common/dtos/pagination/pagination.dto';
 
 @Injectable()
