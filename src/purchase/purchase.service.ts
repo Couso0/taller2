@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreatePurchaseDto } from './dto/create-purchase.dto';
 import { UpdatePurchaseDto } from './dto/update-purchase.dto';
 import { PurchaseEntity } from './entities/purchase.entity';
-import { ManagerError } from 'src/common/errors/manager.error';
+import { ManagerError } from './../common/errors/manager.error';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, UpdateResult } from 'typeorm';
 import { ResponseAllPurchase } from './interfaces/response-purchase.interface';
@@ -44,6 +44,7 @@ export class PurchaseService {
         this.purchaseRepository.createQueryBuilder('purchase')
           .where({ isActive: true })
           .leftJoinAndSelect('purchase.paymentMethod', 'paymentMethod')
+          .leftJoinAndSelect('purchase.customer', 'customer')
           .take(limit)
           .skip(skip)
           .getMany()
@@ -74,6 +75,7 @@ export class PurchaseService {
       const purchase = await this.purchaseRepository.createQueryBuilder('purchase')
         .where({ isActive: true })
         .leftJoinAndSelect('purchase.paymentMethod', 'paymentMethod')
+        .leftJoinAndSelect('purchase.customer', 'customer')
         .getOne()
 
       if (!purchase) {
@@ -95,7 +97,7 @@ export class PurchaseService {
       if (purchase.affected === 0) {
         throw new ManagerError({
           type: 'NOT_FOUND',
-          message: 'Purchaseo not found',
+          message: 'Purchase not found',
         });
       }
 

@@ -12,6 +12,7 @@ import { WarehousesModule } from './warehouses/warehouses.module';
 import { AuthModule } from './auth/auth.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { PaymentModule } from './payment/payment.module';
+import { CustomerModule } from './customer/customer.module';
 
 @Module({
   imports: [ 
@@ -23,7 +24,7 @@ import { PaymentModule } from './payment/payment.module';
     ProductsModule, 
     CategoriesModule, 
     SuppliersModule, 
-    UsersModule, StocksModule, WarehousesModule, AuthModule, PurchaseModule, PaymentModule,
+    UsersModule, StocksModule, WarehousesModule, AuthModule, PurchaseModule, PaymentModule, CustomerModule,
   ],
   controllers: [],
   providers: [],

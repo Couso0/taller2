@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestj
 import { PurchaseService } from './purchase.service';
 import { CreatePurchaseDto } from './dto/create-purchase.dto';
 import { UpdatePurchaseDto } from './dto/update-purchase.dto';
-import { PaginationDto } from 'src/common/dtos/pagination/pagination.dto';
+import { PaginationDto } from './../common/dtos/pagination/pagination.dto';
 
 @Controller('purchase')
 export class PurchaseController {
